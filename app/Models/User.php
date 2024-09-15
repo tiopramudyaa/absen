@@ -27,4 +27,14 @@ class User extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function penilaian()
+    {
+        return $this->hasMany(Penilaian::class, 'id_user', 'id');
+    }
+
+    public function riwayat_penilaian()
+    {
+        return $this->hasMany(RiwayatPenilaian::class, 'id_user', 'id');
+    }
 }

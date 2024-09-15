@@ -13,7 +13,7 @@ class Penilaian extends Model
     protected $table = 'penilaian';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'id_mahasiswa',
+        // 'id_mahasiswa',
         'tanggal',
         'jenis_penilaian',
         'nilai',
@@ -22,10 +22,9 @@ class Penilaian extends Model
         'komen',
     ];
 
-    // Relasi dengan model Mahasiswa
-    public function mahasiswa()
+    public function riwayat_penilaian()
     {
-        return $this->belongsTo(Mahasiswa::class, 'id_mahasiswa', 'id_mahasiswa');
+        return $this->hasMany(RiwayatPenilaian::class, 'id_penilaian', 'id');
     }
 
     // Relasi dengan model User

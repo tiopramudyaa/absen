@@ -39,7 +39,11 @@ class KelasController extends Controller
 
     public function showWithMahasiswa()
     {
-        $kelas = Kelas::with('mahasiswa', '')->get();
+        // $kelas = Kelas::with('mahasiswa.mingguPenilaian.penilaian')->get();
+        $kelas = Kelas::whereHas('mahasiswa.mingguPenilaian.penilaian', function ($query) {
+            $query->where('jenis_penilaian', 'UGD');
+        })->with('mahasiswa.mingguPenilaian.penilaian')->get();
+
         return response()->json([
             'message' => 'Success',
             'data' => $kelas

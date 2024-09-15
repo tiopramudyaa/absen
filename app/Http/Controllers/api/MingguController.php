@@ -22,6 +22,7 @@ class MingguController extends Controller
     {
         $minggu = new Minggu();
         $minggu->nama_minggu = $request->nama_minggu;
+        $minggu->id_mahasiswa = $request->id_mahasiswa;
         $minggu->save();
 
         return response()->json([

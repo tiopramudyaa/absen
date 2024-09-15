@@ -15,7 +15,6 @@ class Kelas extends Model
         'nama_kelas',
     ];
 
-    // Kolom yang harus diperlakukan sebagai tanggal
     protected $dates = [
         'created_at',
         'updated_at',

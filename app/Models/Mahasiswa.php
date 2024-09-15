@@ -14,17 +14,17 @@ class Mahasiswa extends Model
     protected $fillable = [
         'nama',
         'npm',
+        'id_kelas',
     ];
 
-    // Relasi dengan model Kelas
     public function kelas()
     {
-        return $this->belongsTo(Kelas::class, 'id_kelas', 'id_kelas');
+        return $this->belongsTo(Kelas::class, 'id_kelas', 'id');
     }
 
-    public function penilaian()
+    public function mingguPenilaian()
     {
-        return $this->hasMany(Penilaian::class, 'id_mahasiswa', 'id');
+        return $this->hasMany(Minggu::class, 'id_mahasiswa', 'id');
     }
 
     // Kolom yang harus diperlakukan sebagai tanggal

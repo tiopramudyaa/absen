@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('penilaian', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_mahasiswa')->constrained('mahasiswa')->onDelete('cascade');
+            // $table->foreignId('id_mahasiswa')->constrained('mahasiswa')->onDelete('cascade');
             $table->date('tanggal');
             $table->text('jenis_penilaian')->nullable();
             $table->integer('nilai');

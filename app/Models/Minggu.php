@@ -5,24 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kelas extends Model
+class Minggu extends Model
 {
     use HasFactory;
-
-    protected $table = 'kelas';
+    protected $table = 'minggu_penilaian';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'nama_kelas',
+        'nama_minggu',
     ];
 
-    // Kolom yang harus diperlakukan sebagai tanggal
     protected $dates = [
         'created_at',
         'updated_at',
     ];
-
-    public function mahasiswa()
-    {
-        return $this->hasMany(Mahasiswa::class, 'id_kelas', 'id');
-    }
 }

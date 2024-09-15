@@ -19,6 +19,7 @@ class RiwayatPenilaian extends Model
     protected $fillable = [
         'id_penilaian',
         'id_user_ubah',
+        'waktu_ubah',
         'nilai_lama',
         'nilai_baru',
     ];

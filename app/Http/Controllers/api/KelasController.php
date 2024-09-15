@@ -36,4 +36,13 @@ class KelasController extends Controller
         $kelas->delete();
         return response()->json(['message' => 'kelas deleted successfully'], 200);
     }
+
+    public function showWithMahasiswa()
+    {
+        $kelas = Kelas::with('mahasiswa', '')->get();
+        return response()->json([
+            'message' => 'Success',
+            'data' => $kelas
+        ]);
+    }
 }

@@ -18,7 +18,7 @@ class Penilaian extends Model
         'jenis_penilaian',
         'nilai',
         'id_user',
-        'urutan',
+        'id_minggu',
         'komen',
     ];
 
@@ -32,6 +32,12 @@ class Penilaian extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user', 'id_user');
+    }
+
+    // Relasi dengan model MingguPenilaian
+    public function minggu_penilaian()
+    {
+        return $this->belongsTo(Minggu::class, 'id_minggu', 'id');
     }
 
     // Kolom yang harus diperlakukan sebagai tanggal

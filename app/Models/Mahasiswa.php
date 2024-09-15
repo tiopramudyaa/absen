@@ -22,6 +22,11 @@ class Mahasiswa extends Model
         return $this->belongsTo(Kelas::class, 'id_kelas', 'id_kelas');
     }
 
+    public function penilaian()
+    {
+        return $this->hasMany(Penilaian::class, 'id_mahasiswa', 'id');
+    }
+
     // Kolom yang harus diperlakukan sebagai tanggal
     protected $dates = [
         'created_at',

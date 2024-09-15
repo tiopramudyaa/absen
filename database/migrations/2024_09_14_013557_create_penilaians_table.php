@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_mahasiswa')->constrained('mahasiswa')->onDelete('cascade');
             $table->date('tanggal');
-            $table->enum('jenis_penilaian', ['UGD', 'GD']);
-            $table->decimal('nilai', 5, 2);
+            $table->text('jenis_penilaian')->nullable();
+            $table->integer('nilai');
             $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
             $table->timestamp('waktu_penilaian')->useCurrent();
-            $table->integer('urutan')->default(1); // Urutan default
-            $table->text('komen')->nullable(); // Komentar bisa null
+            $table->text('komen')->nullable();
+            $table->foreignId('id_minggu')->constrained('minggu_penilaian')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('penilaians');
+        Schema::dropIfExists('penilaian');
     }
 };

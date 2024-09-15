@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('id_penilaian')->constrained('penilaian')->onDelete('cascade');
             $table->foreignId('id_user_ubah')->constrained('users')->onDelete('cascade'); // User yang mengubah nilai
             $table->timestamp('waktu_ubah')->useCurrent();
-            $table->decimal('nilai_lama', 5, 2);
-            $table->decimal('nilai_baru', 5, 2);
+            $table->integer('nilai_lama');
+            $table->integer('nilai_baru');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('riwayat_penilaians');
+        Schema::dropIfExists('riwayat_penilaian');
     }
 };
